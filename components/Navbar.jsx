@@ -13,7 +13,7 @@ const Navbar = () => {
   // State to manage the profile dropdown menu open/close status
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   // State to manage the user login status
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   // Get the current pathname from the Next.js router
   const pathname = usePathname();
