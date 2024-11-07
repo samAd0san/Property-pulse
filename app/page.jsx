@@ -1,7 +1,12 @@
+import Link from "next/link";
+
 const MainPage = () => {
     return (
-        <div className="text-2xl text-green-700">
-            The Main Page
+        <div>
+            <h1 className="text-3xl">Home Page</h1>
+            <Link href='/properties' className="font-semibold text-green-900">
+                Go to Properties
+            </Link>
         </div>
     )
 }
