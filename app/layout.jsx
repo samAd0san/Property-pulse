@@ -1,4 +1,5 @@
 // Main Page
+import Navbar from '@/components/Navbar';
 import '@/assets/styles/globals.css'
 
 export const metadata = {
@@ -11,7 +12,8 @@ const Layout = ({ children }) => {
     return (
         <html lang='en'>
             <body>
-                {children}
+                <Navbar />
+                <main>{children}</main>
             </body>
         </html>
     );
