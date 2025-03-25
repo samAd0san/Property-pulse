@@ -1,12 +1,17 @@
-const DynamicPropertyId = () => {
+import connectDB from "@/config/database";
+import Property from "@/models/Property";
+import PropertyHeaderImage from "@/components/PropertyHeaderImage";
+
+const DynamicPropertyId = async ({ params }) => {
+    await connectDB();
+    const property = await Property.findById(params.id).lean();
+
     return (
-        <div>
-            Dynamic page (by id)
-        </div>
+        <>
+            <PropertyHeaderImage image={property.images[0]} />
+            <section>{property.name}</section>
+        </>
     )
 }
 
 export default DynamicPropertyId;
-
-// http://localhost:3000/properties/100 or http://localhost:3000/properties/1 
-// we can choose the Id dynamically
