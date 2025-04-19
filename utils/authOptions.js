@@ -6,6 +6,7 @@ export const authOptions = {
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
             authorization: {
+                // To avoid auto sign-in, with the same account
                 params: {
                     prompt: 'consent',
                     access_type: 'offline',
