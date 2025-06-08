@@ -84,6 +84,7 @@ const Navbar = () => {
                   href='/'
                   className={`${pathname === '/' ? 'bg-black' : ''
                     } text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+                    onClick={ () => setIsProfileMenuOpen(false)}
                 >
                   Home
                 </Link>
@@ -91,6 +92,7 @@ const Navbar = () => {
                   href='/properties'
                   className={`${pathname === '/properties' ? 'bg-black' : ''
                     } text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+                    onClick={ () => setIsProfileMenuOpen(false)}
                 >
                   Properties
                 </Link>
@@ -99,6 +101,7 @@ const Navbar = () => {
                     href='/properties/add'
                     className={`${pathname === '/properties/add' ? 'bg-black' : ''
                       } text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+                      onClick={ () => setIsProfileMenuOpen(false)}
                   >
                     Add Property
                   </Link>
@@ -245,6 +248,7 @@ const Navbar = () => {
               href='/'
               className={`${pathname === '/' ? 'bg-black' : ''
                 } text-white block rounded-md px-3 py-2 text-base font-medium`}
+              onClick={ () => setIsProfileMenuOpen(false)}
             >
               Home
             </Link>
@@ -252,6 +256,7 @@ const Navbar = () => {
               href='/properties'
               className={`${pathname === '/properties' ? 'bg-black' : ''
                 } text-white block rounded-md px-3 py-2 text-base font-medium`}
+                onClick={ () => setIsProfileMenuOpen(false)}
             >
               Properties
             </Link>
@@ -260,6 +265,7 @@ const Navbar = () => {
                 href='/properties/add'
                 className={`${pathname === '/properties/add' ? 'bg-black' : ''
                   } text-white block rounded-md px-3 py-2 text-base font-medium`}
+                  onClick={ () => setIsProfileMenuOpen(false)}
               >
                 Add Property
               </Link>
