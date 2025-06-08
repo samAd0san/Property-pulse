@@ -16,7 +16,7 @@ const Navbar = () => {
   const [providers, setProviders] = useState(null);
 
   const profileImage = session?.user?.image;
-  console.log('Profile Image:', profileImage);
+  // console.log('Profile Image:', profileImage);
 
   const pathname = usePathname();
 
