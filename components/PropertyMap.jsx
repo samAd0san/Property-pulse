@@ -4,6 +4,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import Image from 'next/image';
 import pin from '@/assets/images/pin.svg';
 import { setDefaults, fromAddress } from "react-geocode";
+import Spinner from "./Spinner";
 
 const PropertyMap = ({ property }) => {
     const [lat, setLat] = useState(null);
@@ -60,7 +61,7 @@ const PropertyMap = ({ property }) => {
         fetchCoordinates();
     }, []);
 
-    if (loading) return <h3>Loading...</h3>;
+    if (loading) return <Spinner loading={loading} />;
 
     if (geocodeError) {
         return <div className='text-xl'>No location data found</div>;
