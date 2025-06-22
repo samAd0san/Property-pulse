@@ -1,8 +1,21 @@
+"use client";
+import { useState, useTransition } from "react";
 import addProperty from "@/app/actions/addProperty";
 
 const PropertyAddForm = () => {
+  const [isPending, startTransition] = useTransition();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = (e) => {
+    setIsLoading(true);
+    startTransition(() => {
+      // Let the form submit as usual
+      e.target.submit();
+    });
+  };
+
   return (
-    <form action={addProperty}>
+    <form action={addProperty} onSubmit={handleSubmit}>
       <h2 className='text-3xl text-center font-semibold mb-6'>Add Property</h2>
 
       {/* Heading of the Add Property Form */}
@@ -409,10 +422,21 @@ const PropertyAddForm = () => {
       <div>
         {/* Submit button */}
         <button
-          className='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline'
+          className='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline flex items-center justify-center'
           type='submit'
+          disabled={isLoading || isPending}
         >
-          Add Property
+          {(isLoading || isPending) ? (
+            <>
+              <svg className="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+              </svg>
+              Adding...
+            </>
+          ) : (
+            "Add Property"
+          )}
         </button>
       </div>
     </form>
